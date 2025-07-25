@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Lebensmittelplaner Jugendfreizeit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Lebensmittelplaner für Jugendfreizeit</h1>
+
+    <section class="inputs">
+      <label>Tage der Freizeit:
+        <input type="number" id="days" min="1" value="1">
+      </label>
+      <label>Anzahl Kinder:
+        <input type="number" id="children" min="0" value="0">
+      </label>
+      <label>Anzahl Jugendliche:
+        <input type="number" id="teens" min="0" value="0">
+      </label>
+      <label>Anzahl Erwachsene:
+        <input type="number" id="adults" min="0" value="0">
+      </label>
+    </section>
+
+    <section>
+      <h2>Rezepte hinzufügen</h2>
+      <div id="recipes"></div>
+      <button id="addRecipeBtn">+ Neues Rezept</button>
+    </section>
+
+    <button id="calculateBtn">🍽️ Lebensmittelplan berechnen</button>
+
+    <section class="results" id="resultSection" style="display:none;">
+      <h2>Gesamtbedarf</h2>
+      <div id="results"></div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
