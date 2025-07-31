@@ -122,3 +122,8 @@ exportCsvBtn.onclick = exportCsv;
 ladeRezepte();
 updateRezepteListe();
 berechneEinkauf();
+<section>
+  <h2>Mehrtägige Planung</h2>
+  <div id="tagePlanung"></div>
+  <button onclick="neuerTag()">+ Neuer Tag</button>
+</section>
