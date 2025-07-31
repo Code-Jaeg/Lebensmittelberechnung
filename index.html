@@ -2,42 +2,29 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Lebensmittelplaner Jugendfreizeit</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles.css">
+  <title>Verpflegungsplaner Jugendfreizeit</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Lebensmittelplaner für Freizeiten</h1>
+  <h1>🍽️ Verpflegungsplaner</h1>
+  <section>
+    <h2>Teilnehmerzahl</h2>
+    <label>Kinder: <input type="number" id="kinder" value="0"></label>
+    <label>Jugendliche: <input type="number" id="jugendliche" value="0"></label>
+    <label>Erwachsene: <input type="number" id="erwachsene" value="0"></label>
+    <button onclick="berechneEinkauf()">Einkaufsliste berechnen</button>
+  </section>
 
-    <section class="inputs">
-      <label>Dauer der Freizeit in Tagen:
-        <input type="number" id="days" min="1" value="1">
-      </label>
-      <label>Anzahl Kinder:
-        <input type="number" id="children" min="0" value="0">
-      </label>
-      <label>Anzahl Jugendliche:
-        <input type="number" id="teens" min="0" value="0">
-      </label>
-      <label>Anzahl Erwachsene:
-        <input type="number" id="adults" min="0" value="0">
-      </label>
-    </section>
+  <section>
+    <h2>Rezepte</h2>
+    <div id="rezepte"></div>
+    <button onclick="zeigeRezeptForm()">+ Neues Rezept</button>
+  </section>
 
-    <section>
-      <h2>Rezepte hinzufügen</h2>
-      <div id="recipes"></div>
-      <button id="addRecipeBtn">+ Neues Rezept</button>
-    </section>
-
-    <button id="calculateBtn">🍽️ Lebensmittelplan berechnen</button>
-
-    <section class="results" id="resultSection" style="display:none;">
-      <h2>Gesamtbedarf</h2>
-      <div id="results"></div>
-    </section>
-  </div>
+  <section>
+    <h2>Einkaufsliste</h2>
+    <ul id="einkaufsliste"></ul>
+  </section>
 
   <script src="script.js"></script>
 </body>
