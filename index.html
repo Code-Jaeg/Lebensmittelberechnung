@@ -6,25 +6,42 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🍽️ Verpflegungsplaner</h1>
+  <h1>🍽️ Verpflegungsplaner Jugendfreizeit</h1>
+
   <section>
     <h2>Teilnehmerzahl</h2>
-    <label>Kinder: <input type="number" id="kinder" value="0"></label>
-    <label>Jugendliche: <input type="number" id="jugendliche" value="0"></label>
-    <label>Erwachsene: <input type="number" id="erwachsene" value="0"></label>
-    <button onclick="berechneEinkauf()">Einkaufsliste berechnen</button>
+    <label>Kinder: <input type="number" id="kinder" value="0" min="0"></label>
+    <label>Jugendliche: <input type="number" id="jugendliche" value="0" min="0"></label>
+    <label>Erwachsene: <input type="number" id="erwachsene" value="0" min="0"></label>
   </section>
 
   <section>
     <h2>Rezepte</h2>
     <div id="rezepte"></div>
-    <button onclick="zeigeRezeptForm()">+ Neues Rezept</button>
+    <button id="neuRezept">+ Neues Rezept</button>
   </section>
 
   <section>
     <h2>Einkaufsliste</h2>
     <ul id="einkaufsliste"></ul>
+    <button id="exportCsv">Einkaufsliste exportieren (CSV)</button>
   </section>
+
+  <!-- Formular für Rezept erstellen/bearbeiten -->
+  <dialog id="rezeptDialog">
+    <form id="rezeptForm">
+      <h3 id="dialogTitel">Rezept</h3>
+      <label>Name: <input type="text" id="rezeptName" required></label>
+      <div id="zutatenListe">
+        <!-- Zutatenzeilen -->
+      </div>
+      <button type="button" id="addZutat">+ Zutat</button>
+      <footer>
+        <button type="submit">Speichern</button>
+        <button type="button" id="abbrechen">Abbrechen</button>
+      </footer>
+    </form>
+  </dialog>
 
   <script src="script.js"></script>
 </body>
