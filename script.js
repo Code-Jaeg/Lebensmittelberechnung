@@ -127,3 +127,48 @@ berechneEinkauf();
   <div id="tagePlanung"></div>
   <button onclick="neuerTag()">+ Neuer Tag</button>
 </section>
+function zeichneTage() {
+  const container = document.getElementById('tagePlanung');
+  container.innerHTML = '';
+  tage.forEach((tag, index) => {
+    const div = document.createElement('div');
+    div.classList.add('tag');
+
+    div.innerHTML = `<h3>${tag.datum}</h3>`;
+    const select = document.createElement('select');
+    rezepte.forEach((r, i) => {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = r.name;
+      select.appendChild(opt);
+    });
+    const btn = document.createElement('button');
+    btn.textContent = 'Hinzufügen';
+    btn.onclick = () => {
+      const rezeptIndex = parseInt(select.value);
+      tag.rezepte.push(rezepte[rezeptIndex].name);
+      zeichneTage(); berechneEinkauf();
+    };
+
+    const liste = document.createElement('ul');
+    tag.rezepte.forEach((rname, i) => {
+      const li = document.createElement('li');
+      li.textContent = rname;
+      const x = document.createElement('button');
+      x.textContent = '✖';
+      x.onclick = () => { tag.rezepte.splice(i, 1); zeichneTage(); berechneEinkauf(); };
+      li.appendChild(x);
+      liste.appendChild(li);
+    });
+
+    div.appendChild(select);
+    div.appendChild(btn);
+    div.appendChild(liste);
+    container.appendChild(div);
+  });
+}
+
+function neuerTag() {
+  tage.push({ datum: `Tag ${tage.length + 1}`, rezepte: [] });
+  zeichneTage();
+}
